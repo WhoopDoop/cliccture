@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-const Modal_imp = ({image}) => {
+const ModalImp = ({image}) => {
     return (
         <div className="modal">
             <div className='modal-content'>
                 <div className="modal-img">
-                    <img src={image.urls.regular}/>
+                    <img alt="Description" src={image.urls.regular}/>
                 </div>
                 <div className='modal-info'>
                     <h3>{image.description}</h3>
@@ -14,4 +14,4 @@ const Modal_imp = ({image}) => {
         </div>
     )
 }
-export default Modal_imp;
+export default ModalImp;

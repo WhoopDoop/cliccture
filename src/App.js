@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import SearchIcon from './search.svg';
 import {useState, useEffect, useRef} from 'react';
 import Pic from './Pic';
-import Modal_imp from './Modal_imp';
-import gsap from 'gsap';
+import ModalImp from './ModalImp';
 
 function App() {
 
@@ -42,9 +40,10 @@ function App() {
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (page>1)
-      searchPics(searchTerm, page);
-  }, [page]);
+  if (page > 1 && searchTerm.trim() !== "") {
+    searchPics(searchTerm, page);
+  }
+  }, [page, searchTerm]); 
   
   return (
     <div className="app">
@@ -55,7 +54,7 @@ function App() {
         <input
           placeholder="Enter your search."
           onChange = {(e) => setSearchTerm(e.target.value)}/>
-        <img src={SearchIcon} onClick = {() => searchPics(searchTerm)}></img>
+        <img src={SearchIcon} alt="DESCRIPTION" onClick = {() => searchPics(searchTerm)}></img>
       </div>
       {
                 pics.length > 0
@@ -77,7 +76,7 @@ function App() {
 
       {selectedImage && (
             <div onClick={() => setSelectedImage(null)}>
-              <Modal_imp image={selectedImage}/>
+              <ModalImp image={selectedImage}/>
             </div>
         )}
     </div>

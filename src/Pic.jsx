@@ -5,7 +5,7 @@ const Pic = ({picture, onClick}) => {
     return (
         <div className="card" onClick={onClick}>
                 <div>
-                    <img src={picture.urls.small}></img>
+                    <img alt="" src={picture.urls.small}></img>
                 </div>
         </div>
     )
